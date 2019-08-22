@@ -1,0 +1,31 @@
+<div class="container">
+<form (ngSubmit)="OnAddTask(f)" #f="ngForm">
+  <div class="form-group">
+<label >ID</label>
+<input type="text" required id minlength="2" name="Id" ngModel #Id="ngModel" pattern="[0-9]*" placeholder="Enter Id" class="form-control">
+<label  class="alert alert-danger" *ngIf="Id.hasError('required') && !Id.pristine">Id is Required!</label>
+<label  class="alert alert-danger" *ngIf="Id.hasError('minlength') && !Id.pristine">min 2 char!</label>
+<label  class="alert alert-danger" *ngIf="Id.hasError('pattern') && !Id.pristine">Only Numbers!</label>
+
+
+</div>
+
+<div class="form-group">
+  <label >Tasks</label>
+  <input type="text" required minlength="5" name="Title" ngModel #Title="ngModel" pattern="[a-zA-Z]*" placeholder="Enter Tasks" class="form-control">
+  <label  class="alert alert-danger" *ngIf="Title.hasError('required') && !Title.pristine">Title is Required!</label>
+  <label  class="alert alert-danger" *ngIf="Title.hasError('minlength') && !Title.pristine">min 5 char!</label>
+  <label  class="alert alert-danger" *ngIf="Title.hasError('pattern') && !Title.pristine">Only Characters!</label>
+  </div>
+
+  <div class="form-group">
+    <label >Status</label>
+    <input type="text" required minlength="4" name="Status" ngModel #Status="ngModel" pattern="[a-zA-Z]*" placeholder="Enter Status" class="form-control">
+    <label  class="alert alert-danger" *ngIf="Status.hasError('required') && !Status.pristine">Status is Required!</label>
+    <label  class="alert alert-danger" *ngIf="Status.hasError('minlength') && !Status.pristine">min 4 char!</label>
+    <label  class="alert alert-danger" *ngIf="Status.hasError('pattern') && !Status.pristine">only characters!</label>
+  </div>
+
+  <button type="submit" class="form-control btn btn-primary">Add Record</button>
+</form>
+</div>

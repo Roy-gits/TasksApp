@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Edit User</h1>
+    <form (ngSubmit)="OnEditTask(f)" #f="ngForm">
+      <div class="form-group">
+    <label >ID</label>
+    <input type="text" name="Id"  [(ngModel)]="id"  placeholder="Enter Id" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label >Tasks</label>
+      <input type="text" name="Title" [(ngModel)]="title"  placeholder="Enter Tasks" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label >Status</label>
+        <input type="text" name="Status" [(ngModel)]="status"  placeholder="Enter Status" class="form-control">
+      </div>
+<div class = "row">
+    <button type="submit" class=" btn btn-primary">Update Record</button>|
+    <button type="submit" class=" btn btn-primary">Cancel</button>
+</div>
+
+    </form>
+    </div>

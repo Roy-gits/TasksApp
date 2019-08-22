@@ -1,0 +1,19 @@
+<table class="table">
+<thead>
+    <th>ID</th>
+    <th>TASKS</th>
+    <th>STATUS</th>
+    <th>ACTION</th>
+</thead>
+
+<tbody>
+    <tr *ngFor="let item of arr">
+        <td>{{item.Id}}</td>
+        <td>{{item.Title}}</td>
+        <td [ngClass]="{pending:item.Status == 'pending', done:item.Status == 'done'}">{{item.Status}}</td>
+        <td> <button type="button"  class="btn btn-info" (click)="OnEdit(item)">EDIT</button>|
+          <button type="button"  class="btn btn-info" (click)="OnDelete(item)">DELETE</button></td>
+
+    </tr>
+</tbody>
+</table>

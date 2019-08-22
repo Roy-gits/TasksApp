@@ -1,0 +1,25 @@
+<div class="container">
+
+
+<table class="table table-hover" style="margin: 20px">
+  <thead >
+    <th>UserEmail</th>
+    <th>UserName</th>
+    <th>Password</th>
+    <th>Mob.No</th>
+    <th>Action</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of array" >
+      <td class="table-info">{{item.user_email}}</td>
+      <td class="table-info">{{item.user_name}}</td>
+      <td class="table-info">{{item.user_password}}</td>
+      <td class="table-info">{{item.user_mobile_no}}</td>
+      <td><button type="button" class="btn btn-info" >Edit</button>|
+        <button type="button" class="btn btn-info" >Delete</button></td>
+      </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="onAdduser()">Add New</button>
+</div>
