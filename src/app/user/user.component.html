@@ -11,15 +11,43 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let item of array" >
+    <tr *ngFor="let item of array " >
       <td class="table-info">{{item.user_email}}</td>
       <td class="table-info">{{item.user_name}}</td>
       <td class="table-info">{{item.user_password}}</td>
       <td class="table-info">{{item.user_mobile_no}}</td>
-      <td><button type="button" class="btn btn-info" >Edit</button>|
-        <button type="button" class="btn btn-info" >Delete</button></td>
+      <td><button type="button" class="btn btn-info" (click)="onEdit(item)" >Edit</button>|
+        <button type="button" class="btn btn-info" (click)="ondelete(item)">Delete</button></td>
       </tr>
   </tbody>
 </table>
 <button type="button" class="btn btn-success" (click)="onAdduser()">Add New</button>
 </div>
+
+<!-- Edit User Dialog
+<ng-template #myDialog>
+<div class="container">
+  <h1>Edit Task</h1>
+    <form (ngSubmit)="OnEditTask(f)" #f="ngForm">
+      <div class="form-group">
+    <label >ID</label>
+    <input type="text" name="Id"  [(ngModel)]="id"  placeholder="Enter Id" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label >Tasks</label>
+      <input type="text" name="Title" [(ngModel)]="title"  placeholder="Enter Tasks" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label >Status</label>
+        <input type="text" name="Status" [(ngModel)]="status"  placeholder="Enter Status" class="form-control">
+      </div>
+<div class = "row">
+    <button type="submit" class=" btn btn-primary">Update Record</button>|
+    <button type="button" class=" btn btn-primary" (click)="OnCancel()">Cancel</button>
+</div>
+
+    </form>
+    </div>
+  </ng-template> -->

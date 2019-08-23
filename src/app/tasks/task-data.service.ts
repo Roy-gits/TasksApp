@@ -38,7 +38,7 @@ return this._http.get(this.url+Id)
 
   deletetask(Id){
     let head = new HttpHeaders().set("content-type", "application/Json")
-    return this._http.delete(this.url+Id , )
+    return this._http.delete(this.url+Id,{headers:head}  )
   }
 
 

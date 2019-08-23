@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskDataService } from '../task-data.service';
 import { Tasksdata } from '../task';
 
@@ -16,7 +16,7 @@ export class EditTaskComponent implements OnInit {
 
   arr:Tasksdata[] = [];
 
-  constructor(private _active:ActivatedRoute, private _data:TaskDataService) { }
+  constructor(private _active:ActivatedRoute, private _data:TaskDataService, private _route:Router) { }
 
   ngOnInit() {
   this.id = this._active.snapshot.params["Id"];
@@ -31,10 +31,15 @@ export class EditTaskComponent implements OnInit {
     this._data.edittask(f.value).subscribe(
       (data:any) => {
         alert("Data Updated!");
+        this._route.navigate(['']);
       }
     );
 
   }
 
+  OnCancel(){
+    alert("Are you sure want to Cancel??");
+    this._route.navigate(['']);
+  }
 
 }

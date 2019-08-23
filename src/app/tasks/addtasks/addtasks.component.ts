@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskDataService } from '../task-data.service';
 import { Tasksdata } from '../task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addtasks',
@@ -9,7 +10,7 @@ import { Tasksdata } from '../task';
 })
 export class AddtasksComponent implements OnInit {
 
-  constructor(private _data:TaskDataService) { }
+  constructor(private _data:TaskDataService, private _route:Router) { }
 
   arr:Tasksdata[] = [];
 
@@ -23,6 +24,7 @@ export class AddtasksComponent implements OnInit {
      (data:any) => {
        this.arr = data;
        alert("Record Added!");
+      this._route.navigate(['']);
      }
 
    );

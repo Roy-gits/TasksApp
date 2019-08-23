@@ -5,6 +5,7 @@ import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserComponent } from './user/user.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 
 const arr:Routes = [
@@ -14,6 +15,7 @@ const arr:Routes = [
   {path:"editTask/:Id", component:EditTaskComponent},
   {path:"pagenotfound", component:PagenotfoundComponent},
   {path:"user", component:UserComponent},
+  {path:"edituser/:user_email", component:EditUserComponent},
   {path:"adduser", component:AddUserComponent},
   {path:"**",  redirectTo:"/pagenotfound"}
 ];

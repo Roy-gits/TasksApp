@@ -1,4 +1,6 @@
+
 <div class="container">
+  <h1>Edit User : {{email}}</h1>
     <form (ngSubmit)="onupdate(f)" #f="ngForm">
 
     <div class="form-group  has-feedback">
@@ -47,7 +49,7 @@
     <div class='row'>
 
         <button [disabled]='f.invalid' type='submit' class='btn btn-success' >Upload Details</button>|
-        <button  type='button' class='btn btn-info' routerLink="/user">Back</button>
+        <button  type='button' class='btn btn-info' (click)="onBack()">Back</button>
     </div>
     </form>
     </div>

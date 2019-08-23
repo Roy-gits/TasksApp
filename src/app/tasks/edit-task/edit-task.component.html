@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Edit User</h1>
+  <h1>Edit Task</h1>
     <form (ngSubmit)="OnEditTask(f)" #f="ngForm">
       <div class="form-group">
     <label >ID</label>
@@ -17,7 +17,7 @@
       </div>
 <div class = "row">
     <button type="submit" class=" btn btn-primary">Update Record</button>|
-    <button type="submit" class=" btn btn-primary">Cancel</button>
+    <button type="button" class=" btn btn-primary" (click)="OnCancel()">Cancel</button>
 </div>
 
     </form>
