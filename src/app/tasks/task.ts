@@ -7,3 +7,11 @@ export class Tasksdata {
 
     }
 }
+
+export class Taskresolved{
+
+  public constructor(
+     public data:any[],
+     public errormessage:string
+     ){}
+}

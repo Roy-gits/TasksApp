@@ -1,52 +1,38 @@
 <div class="container">
-<form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
-
-<div class="form-group  has-feedback">
+  <h1>Add Users</h1>
+<form [formGroup]="adduser" (ngSubmit)="onUserSave()">
+<div class="form-group">
 <label>User Email</label>
-<input type="email" required email name="user_email"  ngModel  #user_email="ngModel" placeholder="Enter user Email" class="form-control">
-<span  *ngIf="user_email.valid" class="glyphicon glyphicon-ok form-control-feedback " aria-hidden="true"></span>
-<span  *ngIf="user_email.invalid && !user_email.pristine"  class="glyphicon glyphicon-warning-sign form-control-feedback " aria-hidden="true"></span>
-
-<label *ngIf="user_email.hasError('required') && !user_email.pristine" class="alert alert-danger">Email is Required!</label>
-<label *ngIf="user_email.hasError('email') && !user_email.pristine" class="alert alert-danger">Email is Invalid!</label>
+<input formControlName="user_email" type="email" placeholder="Enter user Email" class="form-control">
+<label *ngIf="adduser.get('user_email').hasError('required') && !adduser.get('user_email').pristine" class="alert alert-danger">Email is Required!</label>
+<label *ngIf="adduser.get('user_email').hasError('email') && !adduser.get('user_email').pristine" class="alert alert-danger">Email is Invalid!</label>
 </div>
 
-<div class="form-group  has-feedback">
+<div class="form-group">
     <label>User Name</label>
-    <input type="text" required  name="user_name"  ngModel  #user_name="ngModel" pattern="[a-zA-Z]*" minlength="4" placeholder="Enter user Name" class="form-control">
-    <span  *ngIf="user_name.valid" class="glyphicon glyphicon-ok form-control-feedback " aria-hidden="true"></span>
-    <span  *ngIf="user_name.invalid && !user_name.pristine"  class="glyphicon glyphicon-warning-sign form-control-feedback " aria-hidden="true"></span>
-
-    <label *ngIf="user_name.hasError('required') && !user_name.pristine" class="alert alert-danger">Name is Required!</label>
-    <label *ngIf="user_name.hasError('pattern') && !user_name.pristine" class="alert alert-danger">Only Char!</label>
-    <label *ngIf="user_name.hasError('minlength') && !user_name.pristine" class="alert alert-danger">Min 4 char Required!</label>
+    <input type="text" formControlName="user_name" placeholder="Enter user Name" class="form-control">
+    <label *ngIf="adduser.get('user_name').hasError('required') &&  !adduser.get('user_name').pristine " class="alert alert-danger">Name is Required!</label>
+    <!-- <label *ngIf="user_name.hasError('pattern') && !user_name.pristine" class="alert alert-danger">Only Char!</label>
+    <label *ngIf="user_name.hasError('minlength') && !user_name.pristine" class="alert alert-danger">Min 3 char Required!</label> -->
     </div>
 
-    <div class="form-group  has-feedback">
+    <div class="form-group">
         <label>User Password</label>
-        <input type="password" required  name="user_password"  ngModel  #user_password="ngModel" pattern="[0-9]*" minlength="6" placeholder="Enter user Password" class="form-control">
-        <span  *ngIf="user_password.valid" class="glyphicon glyphicon-ok form-control-feedback " aria-hidden="true"></span>
-        <span *ngIf="user_password.invalid && !user_password.pristine"  class="glyphicon glyphicon-warning-sign form-control-feedback " aria-hidden="true"></span>
+        <input type="password"  formControlName="user_password" placeholder="Enter user Password" class="form-control">
+       <label *ngIf="adduser.get('user_password').hasError('required') && !adduser.get('user_password').pristine" class="alert alert-danger">Password is Required!</label>
 
-        <label *ngIf="user_password.hasError('required') && !user_password.pristine" class="alert alert-danger">Password is Required!</label>
-        <label *ngIf="user_password.hasError('pattern') && !user_password.pristine" class="alert alert-danger">Only num!</label>
-        <label *ngIf="user_password.hasError('minlength') && !user_password.pristine" class="alert alert-danger">Min 6 char Required!</label>
         </div>
 
-        <div class="form-group  has-feedback">
+        <div class="form-group ">
             <label>Mobile No.</label>
-            <input type="text" required  name="user_mobile_no"  ngModel  #user_mobile_no="ngModel" pattern="[0-9]*" minlength="10" placeholder="Enter user Password" class="form-control">
-            <span  *ngIf="user_mobile_no.valid" class="glyphicon glyphicon-ok form-control-feedback " aria-hidden="true"></span>
-            <span *ngIf="user_mobile_no.invalid && !user_mobile_no.pristine"  class="glyphicon glyphicon-warning-sign form-control-feedback " aria-hidden="true"></span>
+            <input type="text" formControlName="user_mobile_no" placeholder="Enter user Password" class="form-control">
+            <label *ngIf="adduser.get('user_mobile_no').hasError('required') && !adduser.get('user_mobile_no').pristine" class="alert alert-danger">Mobile No is Required!</label>
 
-            <label *ngIf="user_mobile_no.hasError('required') && !user_mobile_no.pristine" class="alert alert-danger">Password is Required!</label>
-            <label *ngIf="user_mobile_no.hasError('pattern') && !user_mobile_no.pristine" class="alert alert-danger">Only num!</label>
-            <label *ngIf="user_mobile_no.hasError('minlength') && !user_mobile_no.pristine" class="alert alert-danger">Min 6 char Required!</label>
             </div>
 
-<div class='row'>
+<div class='form-group '>
 
-    <button [disabled]='f.invalid' type='submit' class='btn btn-success' >Upload Details</button>|
+    <button [disabled]='!adduser.valid' type='submit' class='btn btn-success' >Upload Details</button>|
     <button  type='button' class='btn btn-info' (click)="onBack()">Back</button>
 </div>
 </form>

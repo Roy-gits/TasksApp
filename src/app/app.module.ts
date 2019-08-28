@@ -2,33 +2,43 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TasksComponent } from './tasks/tasks.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AddtasksComponent } from './tasks/addtasks/addtasks.component';
-import { FormsModule} from '@angular/forms';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { routing } from './app.routing';
-import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
+
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { UserComponent } from './user/user.component';
-import { AddUserComponent } from './user/add-user/add-user.component';
-import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { MatDialogModule } from '@angular/material';
+
+import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserTableComponent } from './user-table/user-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { LoginComponent } from './login/login.component';
+import { Interceptor } from './interceptor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+import { HomeComponent } from './home/home.component';
+import { AppCustomPreloader } from './appCustomPreloader';
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TasksComponent,
-    AddtasksComponent,
+
     MenuComponent,
-    EditTaskComponent,
+
     PagenotfoundComponent,
-    UserComponent,
-    AddUserComponent,
-    EditUserComponent
+    UserTableComponent,
+    LoginComponent,
+
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +46,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     routing,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule
+
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},AppCustomPreloader
+  ],
   bootstrap: [AppComponent]
 
 })

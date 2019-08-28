@@ -15,12 +15,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" ><a routerLink="">Tasks <span class="sr-only">(current)</span></a></li>
-            <li routerLinkActive="active"><a routerLink="/addtask">AddTask</a></li>
+              <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" ><a routerLink=''>Home <span class="sr-only">(current)</span></a></li>
+            <li routerLinkActive="active" ><a routerLink='/tasks'>Tasks </a></li>
+            <li routerLinkActive="active"><a routerLink="/tasks/addtask">AddTask</a></li>
             <li routerLinkActive="active"><a routerLink="/user">User</a></li>
-
-
-
+            <li routerLinkActive="active"><a routerLink="/mattable">Material Table</a></li>
+            <li *ngIf="!isLoggedIn()" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <li *ngIf="isLoggedIn()" routerLinkActive="active"><a (click)="onLogOut()">Logout</a></li>
           </ul>
 
 

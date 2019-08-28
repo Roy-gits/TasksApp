@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../user/user-data.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _userdata:UserDataService) { }
 
   ngOnInit() {
+  }
+
+  onLogOut(){
+this._userdata.logout();
+  }
+
+  isLoggedIn(){
+    return this._userdata.isLoggedIn;
   }
 
 }

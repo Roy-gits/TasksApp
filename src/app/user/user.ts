@@ -6,3 +6,11 @@ export class UserData {
     public user_mobile_no:string
   ){}
 }
+
+export class resolved{
+
+  public constructor(
+     public data:any[],
+     public errormessage:string
+     ){}
+}
